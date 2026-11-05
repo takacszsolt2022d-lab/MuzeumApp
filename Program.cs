@@ -1,1 +1,4 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using MuzeumApp;
+
+List<Mutargy> lista = new List<Mutargy>();
+int hibassorokszama = 0;
