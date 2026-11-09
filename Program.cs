@@ -66,7 +66,7 @@ foreach (var kiir in lista)
     Console.WriteLine(kiir);
 }
 
-Console.WriteLine("LINQ statisztikák:");
+Console.WriteLine("\nLINQ statisztikák:");
 
 double atlag = lista.Average(m => m.BecsultErtek);
 Console.WriteLine($"A mutárgyak átlagos értéke: {atlag} Ft");
@@ -85,4 +85,15 @@ List<int> festemnykor = lista
     .Select(m => ((Festmeny)m).KorEvekben)
     .ToList();
 
-Console.WriteLine($"Kigyűjtött festény korok: {string.Join(" év  ",festemnykor)} év.");
+Console.WriteLine($"Kigyűjtött festény korok:\n {string.Join(" év  ",festemnykor)} év.");
+
+
+var kimenet = lista
+    .OrderByDescending(m => m.BecsultErtek)
+    .Select(m => $"{m.Azonosito}; {m.BecsultErtek};{m.BiztositasDij()}");
+
+
+File.WriteAllLines("riport.txt", kimenet);
+Console.WriteLine("\n A riport.txt fájl sikeresen elkészült!");
+
+
