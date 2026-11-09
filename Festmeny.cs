@@ -15,12 +15,12 @@ namespace MuzeumApp
 
         public override int BiztositasDij()
         {
-            return (base.BiztositasDij()) + KorEvekben * 500;
+            return base.BiztositasDij() + KorEvekben * 500;
         }
 
         public override string ToString()
         {
-            return (base.ToString()) + $"| Kor:{KorEvekben} év";
+            return base.ToString() + $"| Kor:{KorEvekben} év";
         }
     }
 }
